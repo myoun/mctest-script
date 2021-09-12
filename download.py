@@ -1,7 +1,12 @@
+import os
+
 import urllib3
 import argparse
 import certifi
 from datetime import datetime
+import shutil
+import subprocess
+
 
 def download(version):
     url = f"https://papermc.io/api/v1/paper/{version}/latest/download"
@@ -37,8 +42,12 @@ parser.add_argument("-d", "--download", action="store_true")
 args = parser.parse_args()
 
 version = args.version
-
 if args.download:
     if version != "":
         download(version)
 
+shutil.move("paper-{}.jar".format(version),"./mctest-script/")
+with open("mctest-script/eula.txt", "w") as f:
+    print("Writing Eula File...")
+    f.write("eula=true")
+    print("Writing Finished")
