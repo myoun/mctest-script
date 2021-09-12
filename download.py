@@ -44,8 +44,7 @@ if args.download:
     if version != "":
         download(version)
 
-shutil.move("paper-{}.jar".format(version),"./mctest-script/")
-with open("mctest-script/eula.txt", "w") as f:
+with open("eula.txt", "w") as f:
     print("Writing Eula File...")
     f.write("eula=true")
     print("Writing Finished")
