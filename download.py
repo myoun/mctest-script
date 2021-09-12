@@ -1,11 +1,9 @@
-import os
 
 import urllib3
 import argparse
 import certifi
 from datetime import datetime
 import shutil
-import subprocess
 
 
 def download(version):
